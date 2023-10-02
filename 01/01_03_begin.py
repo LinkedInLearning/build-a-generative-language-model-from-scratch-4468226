@@ -17,6 +17,10 @@ class MarkovChain:
 
     def train(self, text):
         tokens = self._tokenize(text)
+        for i, token in enumerate(tokens):
+            if (len(tokens) -1) == i:
+                break 
+            self.graph[token].append(tokens[i + 1])
                
 
     def generate(self, prompt, length=10):
